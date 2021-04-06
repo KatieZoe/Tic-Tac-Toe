@@ -1,0 +1,44 @@
+/* document use: styling the tic tac toe webpage */
+
+.container {
+  max-width: 960px;
+  background-color: grey;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  font-family: ;
+}
+
+header {
+  color: #F5F730;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 5px;
+  padding-bottom: 50px;
+}
+
+table {
+  width: 600px;
+  display: inline-block;
+}
+
+td {
+  font-size: 50px;
+  /* line-height: 200px; */
+  text-align: center;
+  border: 3px solid black;
+  border-collapse: collapse;
+  width: 100px;
+  height: 100px;
+}
+main {
+  display: inline-block;
+  width: 60%;
+}
+aside {
+  display: inline-block;
+  width: 20 %;
+  vertical-align: top;
+}
