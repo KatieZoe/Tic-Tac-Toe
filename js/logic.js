@@ -1,6 +1,9 @@
 // // document use: contains javascript only to store data and functions
 // check winner function
 
+////not using this method anymore - need to make another version like this later.
+
+
 // let currentPlayer = '';
 
 

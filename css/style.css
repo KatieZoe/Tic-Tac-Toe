@@ -1,19 +1,23 @@
 /* document use: styling the tic tac toe webpage */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+body {
+  background-image: url(../images/background.png);
+}
+
 .container {
-  max-width: 960px;
-  background-color: grey;
+  max-width: 500px;
+  background-color: oldlace;
   margin: 0 auto;
   text-align: center;
   padding: 1em;
-  border-bottom-left-radius: 2em;
-  border-bottom-right-radius: 2em;
+  padding-bottom: 100px;
+  border-radius: 2em;
   font-family: 'Fredoka One', cursive;
 }
 
 header {
-  color: #F5F730;
+  color: slategrey;
   margin: 0 auto;
   text-align: center;
   line-height: 5px;

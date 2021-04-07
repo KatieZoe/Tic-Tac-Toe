@@ -1,26 +1,36 @@
 // document use: interacting with the DOM
 //clear  function all txt dissapear - call once winner is defined
-
-
 $(document).ready(function () {
 
-  $('img').on('click', function(){
-      console.log("clicked");
-  }); //why doesn't this work?
+$("aside h4").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
-//change current player function
-  let currentPlayer = 'X';
+let currentPlayer = '';
+
+  $('img#X').on('click', function(){
+    $('aside h4').text("Current Player:");
+    $('#X').addClass('selectX');
+    currentPlayer = 'O';
+  });
+  $('img#O').on('click', function() {
+    $('aside h4').text("Current Player:");
+    $('#X').addClass('selectX');
+    currentPlayer = 'X';
+  });
+
+//select then alternate between current player function
   const findCurrentPlayer = function() {
     if(currentPlayer === 'X'){
       $('#X').removeClass('selectX');
       $('#O').addClass('selectO');
       return 'O';
-    }if(currentPlayer === 'O'){
+    }
+    if(currentPlayer === 'O'){
       $('#O').removeClass('selectO');
       $('#X').addClass('selectX');
       return 'X';
     }
   };
+
   //returnWinner
   let winner = '';
   const returnWinningPlayer = function () {
@@ -62,6 +72,8 @@ const switchPlayer = function (){
       returnWinningPlayer();
       if(winner === 'O'){
         console.log(`The winner is O's`);
+        //show div that shows winner message - then if user clicks anywhere the page reloads
+        // $('window.location.reload();
       }else if (winner === 'X'){
         console.log(`The winner is X's`);
       }
