@@ -1,5 +1,5 @@
 /* document use: styling the tic tac toe webpage */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
 
 body {
   background-image: url(../images/background.png);
@@ -13,7 +13,7 @@ body {
   padding: 1em;
   padding-bottom: 100px;
   border-radius: 2em;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Barriecito', cursive;
 }
 
 header {
@@ -21,7 +21,9 @@ header {
   margin: 0 auto;
   text-align: center;
   line-height: 5px;
+  padding-top: 30px;
   padding-bottom: 30px;
+  font-size: 30px;
 }
 
 aside img {
@@ -54,21 +56,16 @@ td {
     border: 3px solid red;
 }
 
-/* use the below class when someone selects the X or O image*/
-table img {
-  position: relative;
-  width: 100px;
-  height: 100px;
-}
 /* below box appears over the top of the page until user clicks again */
 .GAMEOVER {
   background-image: url(../images/GAMEOVER.jpeg);
   background-size: cover;
-  color: white;
+  color: yellow;
   position: absolute;
-  margin: 0 auto;
+  margin: 0 0 0 50px;
   height: 200px;
   width: 400px;
   line-height:
   padding: 70px;
+  font-size: 20px;
 }
