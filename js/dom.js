@@ -20,13 +20,13 @@ let currentPlayer = '';
 //select then alternate between current player function
   const findCurrentPlayer = function() {
     if(currentPlayer === 'X'){
-      $('#X').removeClass('selectX');
       $('#O').addClass('selectO');
+      $('#X').removeClass('selectX');
       return 'O';
     }
     if(currentPlayer === 'O'){
-      $('#O').removeClass('selectO');
       $('#X').addClass('selectX');
+      $('#O').removeClass('selectO');
       return 'X';
     }
   };
@@ -64,23 +64,29 @@ let currentPlayer = '';
       };
 
 //loop - to change players each turn and adds in player reference to table
-const switchPlayer = function (){
+const playGame = function (){
   for(let i = 0; i <= 8; i++){
     $(`#${i}`).on('click', function(){
       currentPlayer = findCurrentPlayer();
       $(`#${i}`).text(currentPlayer)
       returnWinningPlayer();
       if(winner === 'O'){
-        console.log(`The winner is O's`);
-        //show div that shows winner message - then if user clicks anywhere the page reloads
-        // $('window.location.reload();
+        $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br><br>O's IS THE WINNER <br><br><em>click to exit<em>`);
+        $('main div').on('click', function (){
+        $('main div').removeClass('GAMEOVER');
+        window.location.reload();
+        })
       }else if (winner === 'X'){
-        console.log(`The winner is X's`);
-      }
+        $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br><br>X's IS THE WINNER <br><br><em>click to exit<em>`);
+        $('main div').on('click', function (){
+        $('main div').removeClass('GAMEOVER');
+        window.location.reload();
       })
-  }
+      }
+  })
 };
-switchPlayer();
+}
+playGame();
 
 
 }); // end document ready function

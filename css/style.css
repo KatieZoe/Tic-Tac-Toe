@@ -54,10 +54,21 @@ td {
     border: 3px solid red;
 }
 
-
-/* use the below class when someone selects a square*/
+/* use the below class when someone selects the X or O image*/
 table img {
   position: relative;
   width: 100px;
   height: 100px;
+}
+/* below box appears over the top of the page until user clicks again */
+.GAMEOVER {
+  background-image: url(../images/GAMEOVER.jpeg);
+  background-size: cover;
+  color: white;
+  position: absolute;
+  margin: 0 auto;
+  height: 200px;
+  width: 400px;
+  line-height:
+  padding: 70px;
 }
