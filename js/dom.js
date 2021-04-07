@@ -60,38 +60,40 @@ let currentPlayer = '';
         return winner = pos0;
       }if(pos6 != '' && pos6 === pos4 && pos4 === pos2){
         return winner = pos6;
-      }if($('td:empty').length === 9){
-              $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br> THERE IS NO WINNER <br><em>click to exit<em>`);
-              $('main div').on('click', function (){
-              $('main div').removeClass('GAMEOVER');
-              window.location.reload();
-            });
+      }if($('td:empty').length === 0){
+          $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br> THERE IS NO WINNER <br><em>click to exit<em>`);
+          $('main div').on('click', function (){
+          $('main div').removeClass('GAMEOVER');
+          window.location.reload();
+        });
       }
     };
 
 //loop - to change players each turn and adds in player reference to table
 const playGame = function (){
+
   for(let i = 0; i <= 8; i++){
     $(`#${i}`).on('click', function(){
     currentPlayer = findCurrentPlayer();
     $(`#${i}`).text(currentPlayer);
-    returnWinningPlayer();
-    if(winner === 'O'){
-        $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br>O's IS THE WINNER <br><em>click to exit<em>`);
-        $('main div').on('click', function (){
-        $('main div').removeClass('GAMEOVER');
-        window.location.reload();
-        })
-      }else if (winner === 'X'){
-        $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br>X's IS THE WINNER <br><em>click to exit<em>`);
-        $('main div').on('click', function (){
-        $('main div').removeClass('GAMEOVER');
-        window.location.reload();
-      })
-    };
-      }
-    }
-};
+    winner = returnWinningPlayer();
+    // });//end of on click function;
+  if(winner === 'O'){
+      $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br>O's IS THE WINNER <br><em>click to exit<em>`);
+      $('main div').on('click', function (){
+      $('main div').removeClass('GAMEOVER');
+      window.location.reload();
+    })//end of on click function
+    }if (winner === 'X'){
+      $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br>X's IS THE WINNER <br><em>click to exit<em>`);
+      $('main div').on('click', function (){
+      $('main div').removeClass('GAMEOVER');
+      window.location.reload();
+      })//end of on click function
+    }//end of winner X
+      });
+  }//end of loop
+};//end of playGame funtion;
 playGame();
 
 
