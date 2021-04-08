@@ -5,3 +5,6 @@ ProjectO - TIC TAC TOE
 
 * The objective of this game is to get three symbols in a row on the grid before your opponent.
 * The symbols are traditionally noughts and crosses (O + X).
+
+
+A readme.md file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.

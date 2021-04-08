@@ -1,37 +1,37 @@
 // document use: interacting with the DOM
-//clear  function all txt dissapear - call once winner is defined
 $(document).ready(function () {
-
-$("aside h4").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
 let currentPlayer = '';
 
+//Event listener to highlight current player once marker is selected
   $('img#X').on('click', function(){
-    $('aside h4').text("Current Player:");
+    $('h4').removeClass('flash');
+    $('h4').text("Current Player:");
     $('#X').addClass('selectX');
     currentPlayer = 'O';
   });
   $('img#O').on('click', function() {
-    $('aside h4').text("Current Player:");
+    $('h4').removeClass('flash');
+    $('h4').text("Current Player:");
     $('#X').addClass('selectX');
     currentPlayer = 'X';
   });
 
-//select then alternate between current player function
+//function that alternates between and highlights current player
   const findCurrentPlayer = function() {
-    if(currentPlayer === 'X'){
-      $('#O').addClass('selectO');
-      $('#X').removeClass('selectX');
-      return 'O';
-    }
+    if(currentPlayer === 'X') {
+        $('#X').removeClass('selectX');
+        $('#O').addClass('selectO');
+        return 'O';
+      }
     if(currentPlayer === 'O'){
-      $('#X').addClass('selectX');
       $('#O').removeClass('selectO');
-      return 'X';
-    }
-  };
+      $('#X').addClass('selectX');
+        return 'X';
+      }
+};
 
-  //returnWinner
+  //Checks if anyone has won the game (called in loop after each input)
   let winner = '';
   const returnWinningPlayer = function () {
     const pos0 = $('#0').text();
@@ -44,57 +44,51 @@ let currentPlayer = '';
     const pos7 = $('#7').text();
     const pos8 = $('#8').text();
 
-      if(pos0 != '' && pos0 === pos1 && pos1 === pos2){
-        return winner = pos0;
-      }if(pos3 != '' && pos3 === pos4 && pos4 === pos5){
-        return winner = pos3;
-      }if(pos6 != '' && pos6 === pos7 && pos7 === pos8){
-        return winner = pos6;
-      }if(pos0 != '' && pos0 === pos3 && pos3 === pos6){
-        return winner = pos0;
-      }if(pos1 != '' && pos1 === pos4 && pos4 === pos7){
-        return winner = pos1;
-      }if(pos2 != '' && pos2 === pos5 && pos5 === pos8){
-        return winner = pos2;
-      }if(pos0 != '' && pos0 === pos4 && pos4 === pos8){
-        return winner = pos0;
-      }if(pos6 != '' && pos6 === pos4 && pos4 === pos2){
-        return winner = pos6;
-      }if($('td:empty').length === 0){
-          $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br> THERE IS NO WINNER <br><em>click to exit<em>`);
-          $('main div').on('click', function (){
-          $('main div').removeClass('GAMEOVER');
-          window.location.reload();
-        });
-      }
-    };
+    if(pos0 != '' && pos0 === pos1 && pos1 === pos2){
+      return winner = pos0;
+    }if(pos3 != '' && pos3 === pos4 && pos4 === pos5){
+      return winner = pos3;
+    }if(pos6 != '' && pos6 === pos7 && pos7 === pos8){
+      return winner = pos6;
+    }if(pos0 != '' && pos0 === pos3 && pos3 === pos6){
+      return winner = pos0;
+    }if(pos1 != '' && pos1 === pos4 && pos4 === pos7){
+      return winner = pos1;
+    }if(pos2 != '' && pos2 === pos5 && pos5 === pos8){
+      return winner = pos2;
+    }if(pos0 != '' && pos0 === pos4 && pos4 === pos8){
+      return winner = pos0;
+    }if(pos6 != '' && pos6 === pos4 && pos4 === pos2){
+      return winner = pos6;
+    }else if($('td:empty').length === 0){
+      return winner = 'TIE';
+      };
+  };
+
 
 //loop - to change players each turn and adds in player reference to table
 const playGame = function (){
-
   for(let i = 0; i <= 8; i++){
     $(`#${i}`).on('click', function(){
     currentPlayer = findCurrentPlayer();
     $(`#${i}`).text(currentPlayer);
     winner = returnWinningPlayer();
-    // });//end of on click function;
-  if(winner === 'O'){
-      $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br>O's IS THE WINNER <br><em>click to exit<em>`);
-      $('main div').on('click', function (){
-      $('main div').removeClass('GAMEOVER');
-      window.location.reload();
-    })//end of on click function
-    }if (winner === 'X'){
-      $('main div').addClass('GAMEOVER').html(`<br><br><br><br><br>X's IS THE WINNER <br><em>click to exit<em>`);
-      $('main div').on('click', function (){
-      $('main div').removeClass('GAMEOVER');
-      window.location.reload();
-      })//end of on click function
-    }//end of winner X
-      });
-  }//end of loop
+    winMessage(returnWinningPlayer(winner));
+    //end of click function
+  })//end of for loop
+}
 };//end of playGame funtion;
 playGame();
 
+
+const winMessage = function (){
+  if(winner === 'O' || 'X'){
+  $('#popup').addClass('GAMEOVER').html(`<br><br><br><br><br>${ winner } WINS!<br><h6><em>click to play again<em></h6>`);
+    $('#popup').on('click', function (){
+    $('#popup').removeClass('GAMEOVER');
+    window.location.reload();
+    })
+  }
+}
 
 }); // end document ready function
