@@ -13,7 +13,7 @@ let currentPlayer = '';
   $('img#O').on('click', function() {
     $('h4').removeClass('flash');
     $('h4').text("Current Player:");
-    $('#X').addClass('selectX');
+    $('#O').addClass('selectO');
     currentPlayer = 'X';
   });
 
@@ -61,8 +61,12 @@ let currentPlayer = '';
     }if(pos6 != '' && pos6 === pos4 && pos4 === pos2){
       return winner = pos6;
     }else if($('td:empty').length === 0){
-      return winner = 'TIE';
-      };
+      $('#popup').addClass('GAMEOVER').html(`<br><br><br><br><br> DRAW! <br><h6><em>click to play again<em></h6>`);
+        $('#popup').on('click', function (){
+        $('#popup').removeClass('GAMEOVER');
+        window.location.reload();
+      })
+    }
   };
 
 
@@ -73,22 +77,22 @@ const playGame = function (){
     currentPlayer = findCurrentPlayer();
     $(`#${i}`).text(currentPlayer);
     winner = returnWinningPlayer();
-    winMessage(returnWinningPlayer(winner));
-    //end of click function
-  })//end of for loop
-}
+    if(winner === 'O'){
+        $('#popup').addClass('GAMEOVER').html(`<br><br><br><br><br> O WINS!<br><h6><em>click to play again<em></h6>`);
+          $('#popup').on('click', function (){
+          $('#popup').removeClass('GAMEOVER');
+          window.location.reload();
+        })// end of click function
+      }else if(winner === 'X'){
+        $('#popup').addClass('GAMEOVER').html(`<br><br><br><br><br> X WINS!<br><h6><em>click to play again<em></h6>`);
+          $('#popup').on('click', function (){
+          $('#popup').removeClass('GAMEOVER');
+          window.location.reload();
+        })//end of click function
+      }//end of winner X if statement
+    })//end of for loop on click function
+  }//end of for loop
 };//end of playGame funtion;
 playGame();
-
-
-const winMessage = function (){
-  if(winner === 'O' || 'X'){
-  $('#popup').addClass('GAMEOVER').html(`<br><br><br><br><br>${ winner } WINS!<br><h6><em>click to play again<em></h6>`);
-    $('#popup').on('click', function (){
-    $('#popup').removeClass('GAMEOVER');
-    window.location.reload();
-    })
-  }
-}
 
 }); // end document ready function
