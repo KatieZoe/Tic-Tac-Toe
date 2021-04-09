@@ -1,12 +1,12 @@
 ProjectO - TIC TAC TOE
 ===============
 
-[Click here](https://katiezoe.github.io/project0/) to play my version of this game:
+[Click here](https://katiezoe.github.io/project0/)
 
-* The objective of this game is to get three symbols in a row on the grid before your opponent.
+* The objective of this game is to get three symbols in a row on the 3x3 board before your opponent.
 * The symbols are traditionally noughts and crosses (O + X).
 
-## My Tic Tac Toe ##
+## My Tic Tac Toe Journey##
 
 I have used html, css, javascript and jquery to manipulate the DOM for this interactive game. I've also used github to host the game on the internet so that others can play it anywhere they like as well as offer me feedback on the functionality and presentation.
 
@@ -18,9 +18,11 @@ Once the game was working I coded an event listener using jquery to allow the us
 
 I then created a pop-up box to display the winner or if the game was a tie. I added an image background on the box and some html using jquery. Turning my attention to css I added animation to the initial prompt to select a marker getting the words to flash on the page until a selection is made. I initially did this using jquery but it would only flash 3 time each time the page loaded so I did some more research on css animation.
 
-Once I had everything working and looking how I initially envisioned I turned my attention back to my javascript code with the intention to make it DRYer. I tried to make the win message appear using interpolation but I got stuck with the win message coming up every time a player clicked the board and always showing O. I think this is because the current player value is redefined every time a player clicks so I found it difficult to allocate it to a variable to be returned from the winCheck method - I don't think it would take much more time for me to figure this out and I will continue to work on this bug.
+Once I had everything working and looking how I initially envisioned I turned my attention back to my javascript code with the intention to make it DRYer. I merged the win message for X and O into one if statement but had to keep the DRAW message separate because the messages are slightly different and I don't see it as it's more succinct to declare the message in variables.
 
-To install simply click the link at the top of this page and play.
+Other bugs I came across at the end of projecto was that the red border on the current player marker only alternated after the next player already made their mark. I fixed this by correcting a lazy approach to changing the selector that was at the beginning of my code that now worked because of my findCurrentPlayer function placement in the playGame for loop. I also fixed a bug where you could change the mark in the table if the other player clicked over it but adding in an additional if statement that checked if the cell was empty before allowing the input.
+
+It has been a very rewarding experience to create this game over the past week. Click the link at the top of this page and check it out for yourself.
 
 Thank you
-Katie Lugton 
+Katie Lugton
