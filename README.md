@@ -6,7 +6,7 @@ ProjectO - TIC TAC TOE
 * The objective of this game is to get three symbols in a row on the 3x3 board before your opponent.
 * The symbols are traditionally noughts and crosses (O + X).
 
-## My Tic Tac Toe Journey##
+## My Tic Tac Toe Journey
 
 I have used html, css, javascript and jquery to manipulate the DOM for this interactive game. I've also used github to host the game on the internet so that others can play it anywhere they like as well as offer me feedback on the functionality and presentation.
 
@@ -25,4 +25,5 @@ Other bugs I came across at the end of projecto was that the red border on the c
 It has been a very rewarding experience to create this game over the past week. Click the link at the top of this page and check it out for yourself.
 
 Thank you
+
 Katie Lugton
