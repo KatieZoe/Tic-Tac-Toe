@@ -92,7 +92,7 @@ $(document).ready(function () {
               window.location.reload();
             })
           // else if statement below mimics the above if returnWinningPlayer returns a draw
-          }else if(winner === 'TIE'){
+        }else if(winner === 'DRAW'){
             $('#popup').addClass('GAMEOVER').html(`<br><br><br><br><br> ${ winner }!<br><h6><em>click to play again<em></h6>`);
             $('#popup').on('click', function (){
               $('#popup').removeClass('GAMEOVER');
